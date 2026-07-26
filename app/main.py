@@ -3,11 +3,33 @@ import sys
 
 def main():
     # TODO: Uncomment the code below to pass the first stage
+
+    builtin_commands=["type","echo","exit"]
     while True:
         sys.stdout.write("$ ")
         
         command=input()
-        print(f"{command}: command not found")
+        # print(command[5:])
+        if command=="exit":
+                break
+
+        elif command.startswith("echo"):
+             print(" ".join(command.split()[1:]))
+
+        elif command.startswith("type"):
+             for b in builtin_commands:
+                  if command[5:]==b:
+                    print(f"{command[5:]} is a shell builtin")
+                    break
+
+#else  is of for loop 
+             else:print(f"{command[5:]}: not found")
+                       
+                 
+        else:
+             print(f"{command}: command not found")
+
+    
     
 
 if __name__ == "__main__":
