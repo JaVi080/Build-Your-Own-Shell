@@ -22,7 +22,8 @@ def main():
                     print(f"{command[5:]} is a shell builtin")
                     break
 
-             print(f"{command}: not found")
+#else  is of for loop 
+             else:print(f"{command[5:]}: not found")
                        
                  
         else:
