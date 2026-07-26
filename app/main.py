@@ -9,6 +9,7 @@ def main():
         sys.stdout.write("$ ")
         
         command=input()
+        print(command[5:])
         if command=="exit":
                 break
 
@@ -17,7 +18,7 @@ def main():
 
         elif command.startswith("type"):
              for b in builtin_commands:
-                  if command==b:return {f"{command} is a shell builtin"}
+                  if command[5:]==b:return {f"{command} is a shell builtin"}
                   else:print(f"{command}: not found")
                        
                  
