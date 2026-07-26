@@ -9,7 +9,7 @@ def main():
         sys.stdout.write("$ ")
         
         command=input()
-        print(command[5:])
+        # print(command[5:])
         if command=="exit":
                 break
 
