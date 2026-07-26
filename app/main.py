@@ -19,8 +19,6 @@ def main():
         elif command.startswith("type"):
              for b in builtin_commands:
                   if command[5:]==b:print(f"{command[5:]} is a shell builtin")
-
-             else:print(f"{command}: not found")
                        
                  
         else:
