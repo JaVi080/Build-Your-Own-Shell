@@ -10,7 +10,7 @@ def main():
         if command=="exit":
                 break
 
-        elif command.split()[0] =="echo":
+        elif command.startswith("echo"):
              print(" ".join(command.split()[1:]))
              
         else:
