@@ -11,7 +11,7 @@ def main():
                 break
 
         elif command.split()[0] =="echo":
-             print(command.split()[1:])
+             print(" ".join(command.split()[1:]))
              
         else:
              print(f"{command}: command not found")
