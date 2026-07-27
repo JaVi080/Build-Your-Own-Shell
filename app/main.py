@@ -1,6 +1,7 @@
 import sys
 import os
 import shutil
+import subprocess
 
 def main():
     # TODO: Uncomment the code below to pass the first stage
@@ -49,12 +50,12 @@ def main():
                  
         else:
              #RUNNING External prg
-               # cmd = command[5:]
-               cmd=" ".join(command.split())
-               if file:=shutil.which(cmd[0]):
+               
+               # cmd=" ".join(command.split())
+               if file:=shutil.which(command.split()[0]):
                     
-                    out=file.subprocess()
-                    print(out)
+                    output=subprocess.run(file)
+                    print(output)
 
 
     
