@@ -1,5 +1,6 @@
 import sys
 import os
+import shutil
 
 def main():
     # TODO: Uncomment the code below to pass the first stage
@@ -15,6 +16,7 @@ def main():
         if command=="exit":
                 break
 
+       #Rnning External prg
         elif command.startswith("echo"):
              print(" ".join(command.split()[1:]))
 
@@ -47,7 +49,10 @@ def main():
                                                
                  
         else:
-             print(f"{command}: command not found")
+             #RUNNING External prg
+             if file:=shutil.which(cmd):
+                  file.subprocess()
+
 
     
     
