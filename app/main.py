@@ -14,7 +14,7 @@ def main():
         command=input()
         
         if command=="exit":
-                break
+                sys.exit(0)
 
        #Rnning External prg
         elif command.startswith("echo"):
@@ -56,7 +56,7 @@ def main():
 
                     #subprocess.run() expects the command and its arguments as separate items.
                     subprocess.run(command.split())
-                    
+
                else:  print(f"{command}: not found")
         
                     
