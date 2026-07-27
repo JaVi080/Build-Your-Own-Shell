@@ -12,7 +12,7 @@ def main():
         sys.stdout.write("$ ")
         
         command=input()
-        # print(command[5:])
+        
         if command=="exit":
                 break
 
@@ -48,7 +48,7 @@ def main():
                   else: print(f"{command[5:]}: not found")
                                                
                  
-        else:
+        elif command.split()[1]:
              #RUNNING External prg
                
                # cmd=" ".join(command.split())
@@ -56,6 +56,9 @@ def main():
 
                     #subprocess.run() expects the command and its arguments as separate items.
                     subprocess.run(command.split())
+
+        else:
+             print(f"{command}: not found")
                     
 
 
