@@ -1,10 +1,11 @@
 import sys
-
+import os
 
 def main():
     # TODO: Uncomment the code below to pass the first stage
 
     builtin_commands=["type","echo","exit"]
+    
     while True:
         sys.stdout.write("$ ")
         
@@ -21,10 +22,17 @@ def main():
                   if command[5:]==b:
                     print(f"{command[5:]} is a shell builtin")
                     break
+                  #else  is of for loop 
+             else:
+                  #PATH env variable
+                  path =os.environ.get["PATH"].split(os.pathsep)
+                  for dictionary in path:
+                       filePath=os.path.join(dictionary,command[5:])
+                       if os.access(filePath, os.X_OK):
+                            print(f"{command[5:]} is {filePath}")
 
-#else  is of for loop 
-             else:print(f"{command[5:]}: not found")
-                       
+                  else: print(f"{command[5:]}: not found")
+                                               
                  
         else:
              print(f"{command}: command not found")
