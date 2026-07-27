@@ -25,7 +25,7 @@ def main():
                   #else  is of for loop 
              else:
                   #PATH env variable
-                  path =os.environ.get["PATH"].split(os.pathsep)
+                  path =os.environ.get("PATH").split(os.pathsep)
                   for dictionary in path:
                        filePath=os.path.join(dictionary,command[5:])
                        if os.access(filePath, os.X_OK):
