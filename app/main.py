@@ -54,7 +54,8 @@ def main():
                # cmd=" ".join(command.split())
                if file:=shutil.which(command.split()[0]):
                     
-                    output=subprocess.run(file)
+                    #subprocess.run() expects the command and its arguments as separate items.
+                    output=subprocess.run(command.split())
                     print(output)
 
 
