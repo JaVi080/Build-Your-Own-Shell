@@ -30,6 +30,7 @@ def main():
                        filePath=os.path.join(dictionary,command[5:])
                        if os.access(filePath, os.X_OK):
                             print(f"{command[5:]} is {filePath}")
+                            break
 
                   else: print(f"{command[5:]}: not found")
                                                
