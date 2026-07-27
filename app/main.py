@@ -11,7 +11,6 @@ def main():
         sys.stdout.write("$ ")
         
         command=input()
-        cmd = command[5:]
         # print(command[5:])
         if command=="exit":
                 break
@@ -50,10 +49,12 @@ def main():
                  
         else:
              #RUNNING External prg
-             print("i ma here")
-             if file:=shutil.which(cmd):
-                  out=file.subprocess()
-                  print(out)
+               # cmd = command[5:]
+               cmd=" ".join(command.split())
+               if file:=shutil.which(cmd[0]):
+                    
+                    out=file.subprocess()
+                    print(out)
 
 
     
