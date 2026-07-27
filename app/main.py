@@ -50,6 +50,7 @@ def main():
                  
         else:
              #RUNNING External prg
+             print("i ma here")
              if file:=shutil.which(cmd):
                   out=file.subprocess()
                   print(out)
