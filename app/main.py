@@ -48,7 +48,7 @@ def main():
                   else: print(f"{command[5:]}: not found")
                                                
                  
-        elif command.split()[1]:
+        else:
              #RUNNING External prg
                
                # cmd=" ".join(command.split())
@@ -56,9 +56,9 @@ def main():
 
                     #subprocess.run() expects the command and its arguments as separate items.
                     subprocess.run(command.split())
-
-        else:
-             print(f"{command}: not found")
+                    
+               else:  print(f"{command}: not found")
+        
                     
 
 
