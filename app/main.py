@@ -10,6 +10,7 @@ def main():
         sys.stdout.write("$ ")
         
         command=input()
+        cmd = command[5:]
         # print(command[5:])
         if command=="exit":
                 break
@@ -31,6 +32,16 @@ def main():
                        if os.access(filePath, os.X_OK):
                             print(f"{command[5:]} is {filePath}")
                             break
+
+# this all process can be replaced by shutil.which(cmd)
+      #    bcz internally it do all this like 
+ # shutil.which(command) internally does something very similar to:
+
+#  Reads the PATH environment variable.
+#  Splits it using the correct separator (: on Linux/macOS, ; on Windows).
+#  Looks in each directory for the command.
+#  Checks if the file exists and is executable.
+#  Returns the full path (e.g., /bin/cat) if found, otherwise returns None.
 
                   else: print(f"{command[5:]}: not found")
                                                
