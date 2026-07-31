@@ -23,7 +23,7 @@ class Shell:
                 "exit":lambda:sys.exit(0)
             }
 
-         select_method=start_Methods.get(cmd,lambda:self.External)
+         select_method=start_Methods.get(cmd,self.External)
          select_method()
 
 
