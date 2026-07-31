@@ -9,17 +9,19 @@ class Shell:
         self.command=command
         self.__path=os.environ.get("PATH","").split(os.pathsep)
         self.builtin_commands=["type","echo","pwd","exit"] 
-        
 
-    def execute(self):
-         parts = self.command.split()
-         if not parts:return 
+    def validate_cmd(self,parts):
+         return len(parts)>=2
+    def execute(self,parts):
+        #  parts = self.command.split()
+        #  if not parts:return 
          cmd= parts[0] 
 
          start_Methods={
                 "echo":self.echo,
                 "type":self.type_m,
                 "pwd":lambda:print(os.getcwd()),
+                "cd":self.cd,
                 "exit":lambda:sys.exit(0)
             }
 
@@ -33,7 +35,14 @@ class Shell:
          sys.stdout.write(os.getcwd() + "\n")
          sys.stdout.flush()
 
+    def cd(self):
+         path=self.command.split()
+         if os.path.isdir(path[1]): os.chdir(path[1]) 
+         else:print(f"{path[0]}:{path[1]}: No such file or directory")
+         
+
     def type_m(self)->None:
+        
         parts = self.command.split()
 
         if parts[1] in self.builtin_commands:
@@ -76,8 +85,10 @@ def main():
         sys.stdout.write("$ ")
         
         command=input()
+        parts=command.split()
         s=Shell(command)
-        s.execute()
+        s.validate_cmd(parts)
+        s.execute(parts)
 
 if __name__ == "__main__":
     main()
