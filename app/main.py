@@ -38,7 +38,7 @@ class Shell:
     def cd(self):
          path=self.command.split()
          if os.path.isdir(path[1]): os.chdir(path[1]) 
-         else:print(f"{path[0]}:{path[1]}: No such file or directory")
+         else:print(f"{path[0]}: {path[1]}: No such file or directory")
          
 
     def type_m(self)->None:
