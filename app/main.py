@@ -3,6 +3,7 @@ import sys
 import os
 import shutil
 import subprocess
+from pathlib import Path
 class Shell:
     # builtin_commands=["type","echo","exit"]  
     def __init__(self,command):
@@ -37,11 +38,19 @@ class Shell:
 
     def cd(self):
          path=self.command.split()
+         if len(path) > 0 and path[1].startswith('~'):
+            # home_path=Path.home()-- it gives string cant apply path methods here
+             #better way
+            target=Path(path[1]).expanduser() # it gives path obj can apply path methods like path.exists() etc 
+            os.chdir(target)
+            return
+         
          if os.path.isdir(path[1]): os.chdir(path[1]) 
          else:print(f"{path[0]}: {path[1]}: No such file or directory")
          
 
     def type_m(self)->None:
+        
         
         parts = self.command.split()
 
