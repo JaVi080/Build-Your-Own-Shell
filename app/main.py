@@ -17,14 +17,13 @@ class Shell:
          cmd= parts[0] 
 
          start_Methods={
-                "echo":lambda:self.echo,
-                "type":lambda:self.type_m,
+                "echo":self.echo,
+                "type":self.type_m,
                 "exit":lambda:sys.exit(0)
                
             }
 
          select_method=start_Methods.get(cmd,lambda:self.External)
-
          select_method()
 
 
