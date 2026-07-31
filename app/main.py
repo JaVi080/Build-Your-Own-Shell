@@ -19,7 +19,7 @@ class Shell:
          start_Methods={
                 "echo":self.echo,
                 "type":self.type_m,
-                "pwd":self.pwd,
+                "pwd":lambda :print(os.getcwd()),
                 "exit":lambda:sys.exit(0)
             }
 
