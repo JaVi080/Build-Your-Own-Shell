@@ -8,7 +8,7 @@ class Shell:
     def __init__(self,command):
         self.command=command
         self.__path=os.environ.get("PATH","").split(os.pathsep)
-        self.builtin_commands=["type","echo","exit"] 
+        self.builtin_commands=["type","echo","pwd","exit"] 
         
 
     def execute(self):
@@ -19,8 +19,8 @@ class Shell:
          start_Methods={
                 "echo":self.echo,
                 "type":self.type_m,
+                "pwd":self.pwd,
                 "exit":lambda:sys.exit(0)
-               
             }
 
          select_method=start_Methods.get(cmd,lambda:self.External)
@@ -28,6 +28,10 @@ class Shell:
 
 
     def echo(self):print(" ".join(self.command.split()[1:]))
+
+    def pwd(self):
+         sys.stdout.write(os.getcwd() + "\n")
+         sys.stdout.flush()
 
     def type_m(self)->None:
         parts = self.command.split()
