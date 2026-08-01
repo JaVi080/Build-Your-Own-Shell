@@ -30,7 +30,46 @@ class Shell:
          select_method()
 
 
-    def echo(self):print(" ".join(self.command.split()[1:]))
+    def echo(self):
+         parts=self.command
+         single_Qoutes=False
+         tokens=[]
+         current_token = ""
+
+         for p in parts[5:]:
+              if p=="'" :single_Qoutes=not single_Qoutes
+
+              if p==" " and not single_Qoutes:
+                   tokens.append(current_token)
+                   current_token=""
+              else:
+                   current_token+=p
+
+         if current_token:
+          tokens.append(current_token)
+
+         print(" ".join(tokens))
+    
+              
+              
+
+        #  List=[]
+        #  word
+        #  s_word
+
+        #  for p in parts[5:]:
+        #       if single_Qoutes:
+        #            if p=="'":
+        #             single_Qoutes=False
+        #             List.append(s_word)
+        #             continue
+        #            s_word+=p
+
+        #       if p != " ":word += p
+        #       else:List.append(word)
+        #       if p=="'":single_Qoutes=True
+    
+        #  print(" ".join(List))
 
     def pwd(self):
          sys.stdout.write(os.getcwd() + "\n")
